@@ -6,12 +6,11 @@
   "scripts": {
     "test": "mocha --compilers js:babel-register --timeout 100 --slow 30 --throw-deprecation --use_strict",
     "js": "babel src --out-dir build",
-    "build": "npm run js && npm run less",
+    "build": "npm run js",
     "start": "node server.js",
     "clean": "rm -rf build",
     "prebuild": "npm run clean",
-    "prepublish": "npm run test && npm run build",
-    "less": "lessc src/style.less build/style.css --clean-css"
+    "prepublish": "npm run test && npm run build"
   },
   "author": "Arwed Mett",
   "license": "MIT",
@@ -28,11 +27,9 @@
     "express": "^4.14.0",
     "internal-ip": "^1.2.0",
     "jsdom": "^9.8.3",
-    "less": "^2.7.1",
     "mocha": "^3.2.0",
     "path": "^0.12.7",
     "react-addons-test-utils": "^15.4.1",
-    "svg-url-loader": "^1.1.0",
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
@@ -40,7 +37,7 @@
   "dependencies": {
     "babel-polyfill": "^6.16.0",
     "babel-runtime": "^6.18.0",
-    "less-plugin-clean-css": "^1.5.1",
+    "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^3.0.0",
     "react-test-renderer": "^15.4.1",

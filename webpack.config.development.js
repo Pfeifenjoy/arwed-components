@@ -17,7 +17,7 @@ module.exports = {
         publicPath: "/build/"
     },
     resolve: {
-        extensions: ["", ".less", ".js", ".json"],
+        extensions: ["", ".js", ".json"],
         packageMains: ["browser", "web", "browserify", "main", "style"]
     },
     module: {
@@ -26,14 +26,6 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: "babel",
                 exclude: [/(node_modules)/, /react-css-themr/]
-            },
-            {
-                test: /\.(less|css)$/,
-                loader: "style!css!postcss!less"
-            },
-            {
-                test: /\.svg$/,
-                loader: 'svg-url-loader'
             }
         ]
     },
