@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { confetti } from "../colors"
 
 export const HEADER_HEIGHT = "3.5em"
 
@@ -9,7 +10,7 @@ export default styled.header`
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    background-color: #E9D460;
+    background-color: ${ confetti };
     width: 100%;
     z-index: 10;
     top: 0;

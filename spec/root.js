@@ -5,6 +5,7 @@ import Tile from "./components/tile"
 import HeaderSection from "./components/header"
 import { Header, HEADER_HEIGHT } from "../src"
 import Loader from "./components/loader"
+import Box from "./components/box"
 
 export default class Root extends Component {
     render() {
@@ -16,6 +17,7 @@ export default class Root extends Component {
                 <Button />
                 <Tile />
                 <Loader />
+                <Box />
             </div>
         </div>
     }
