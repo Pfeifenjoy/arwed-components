@@ -1,3 +1,6 @@
 export Input from "./input"
 export Code from "./code"
 export Button from "./button"
+export { Tile, PlusTile } from "./tile"
+export Header, { HEADER_HEIGHT } from "./header"
+export Loader from "./loader"

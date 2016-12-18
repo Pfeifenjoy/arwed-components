@@ -1,13 +1,26 @@
 import React, { Component } from "react"
-import style, { code, heading } from "./style"
+import { white, tiber } from "../colors"
+import styled from "styled-components"
 
-export default class Code extends Component {
-    render() {
-        return <div style={ style }>
-            <h3 style={ heading }>Source:</h3>
-            <code style={ code }>
-                { this.props.children }
-            </code>
-        </div>
-    }
-}
+const heading = styled.h3`
+    margin: 0;
+`
+
+const code = styled.code`
+    margin: 2em;
+    display: block;
+`
+
+const Wrapper = styled.div`
+    background-color: ${ tiber };
+    color: ${ white };
+    padding: 0.5em;
+    margin: 1em;
+`
+
+export default (props) => <Wrapper>
+    <heading>Source:</heading>
+    <br />
+    <code>{ props.children }</code>
+</Wrapper>
+

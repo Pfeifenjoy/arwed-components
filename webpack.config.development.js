@@ -30,6 +30,10 @@ module.exports = {
             {
                 test: /\.(less|css)$/,
                 loader: "style!css!postcss!less"
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-url-loader'
             }
         ]
     },
