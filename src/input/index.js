@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import styled from "styled-components"
 import { text } from "../style"
 
@@ -15,6 +15,7 @@ export default styled.input`
     transition: ease 0.2s;
     padding-left: 5px;
     padding-right: 5px;
+    box-sizing: border-box;
 
     &:focus {
         opacity: 0.5;
