@@ -7,7 +7,7 @@
     "test": "mocha --compilers js:babel-register --timeout 100 --slow 30 --throw-deprecation --use_strict",
     "js": "babel src --out-dir build",
     "build": "npm run js",
-    "start": "./server.js",
+    "start": "node server.js",
     "clean": "rm -rf build",
     "prebuild": "npm run clean",
     "prepublish": "npm run test && npm run build"
