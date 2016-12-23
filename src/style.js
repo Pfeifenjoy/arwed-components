@@ -1,9 +1,7 @@
 export const text = `
-    fontFamily: "Arial", Times, serif;
-    overflow: hidden;
-    textOverflow: ellipsis;
+    font-family: "Arial", Times, serif;
     fontSize: 14pt;
-    lineHeight: 16pt;
+    line-height: 16pt;
 `
 
 

@@ -18,16 +18,11 @@ function getError() {
 export default styled.input`
     ${ text }
     border: none;
-    outline-width: 0;
-    overflow: auto;
-    outline: none;
-    resize: none;
     border: 1px solid #DDDDDD;
     background-color: white;
     border-radius: 3px;
     transition: ease 0.2s;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0.4em;
     box-sizing: border-box;
     ${ props => props.busy ? getBusy() : "" }
     ${ props => props.error ? getError() : "" }
