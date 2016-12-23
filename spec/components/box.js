@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Code, Input } from "../../src"
+import { Box, Code, Input, Button } from "../../src"
 
 export default () => {
     return <section>
@@ -9,13 +9,25 @@ export default () => {
                 style={{ width: "100%" }}
                 placeholder="input"
             />
+            <Button
+                style={{ width: "100%" }}
+            >
+                Button
+            </Button>
         </Box>
-        <Code>{`
+        <Code
+            style={{ width: "400px" }}
+        >{`
             <Box title="title">
             <Input
                 style={{ width: "100%" }}
                 placeholder="input"
             />
+            <Button
+                style={{ width: "100%" }}
+            >
+                Button
+            </Button>
             </Box>
         `}</Code>
     </section>

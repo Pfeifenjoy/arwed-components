@@ -2,6 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import { text } from "../style"
 
+function getBusy() {
+    return `
+        
+    `
+}
+
 export default styled.input`
     ${ text }
     border: none;
@@ -16,6 +22,7 @@ export default styled.input`
     padding-left: 5px;
     padding-right: 5px;
     box-sizing: border-box;
+    ${ props => props.busy ? getBusy() : "" }
 
     &:focus {
         opacity: 0.5;

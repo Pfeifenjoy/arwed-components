@@ -18,9 +18,16 @@ const Wrapper = styled.div`
     margin: 1em;
 `
 
-export default (props) => <Wrapper>
-    <heading>Source:</heading>
-    <br />
-    <code>{ props.children }</code>
-</Wrapper>
+export default p => {
+    const {
+        children,
+        ...props
+    } = p
+
+    return <Wrapper {...props}>
+        <heading>Source:</heading>
+        <br />
+        <code>{ children }</code>
+    </Wrapper>
+}
 

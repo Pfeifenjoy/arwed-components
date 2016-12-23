@@ -17,11 +17,16 @@ const Title = styled.div`
     ${ title }
 `
 
-const CONTENT_MARGIN = 0.5
-
 const Content = styled.div`
-    padding: ${ CONTENT_MARGIN }em;
-    width: calc(100% - ${ CONTENT_MARGIN } em);
+    padding: 0.8em;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    > * {
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+    }
 `
 
 export default p => {

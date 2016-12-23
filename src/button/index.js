@@ -41,7 +41,8 @@ function getActive() {
     return notBusy(`
         &:active {
             box-shadow: none;
-            transform: scale(0.9);
+            filter: brightness(0.9);
+            transition: 0s;
         }
     `)
 }
@@ -66,6 +67,8 @@ const BaseButton = styled.button`
     color: ${ props => getColor(props.type) };
     filter: ${ props => props.busy ? "brightness(85%)" : "" };
     position: relative;
+    transition: 0.4s;
+
     ${ getHover() }
     ${ getActive() }
 `

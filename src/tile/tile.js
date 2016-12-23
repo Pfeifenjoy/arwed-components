@@ -12,6 +12,7 @@ function getTile(props) {
 
     const active = props.href ? `
         transform: scale(0.95);
+        transition: 0s;
     ` : ""
 
     return styled.div`
@@ -23,7 +24,7 @@ function getTile(props) {
             border-radius: 0.2em;
             border: 0.1em solid #CCC;
             background-color: #FAFAFA;
-            transition: 0.1s;
+            transition: 0.2s;
             position: relative;
 
             &:hover {
