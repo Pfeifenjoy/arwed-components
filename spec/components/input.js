@@ -11,6 +11,8 @@ const InputSection = () => {
             <li>text</li>
         </ul>
         <Input placeholder="placeholder" />
+        <br />
+        <Input placeholder="placeholder" busy />
         <Code>
             {`
             <Input placeholder="placeholder" />

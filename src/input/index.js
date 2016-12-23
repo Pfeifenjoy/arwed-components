@@ -4,7 +4,8 @@ import { text } from "../style"
 
 function getBusy() {
     return `
-        
+        filter: brightness(0.9);
+        pointer-events: none;
     `
 }
 
