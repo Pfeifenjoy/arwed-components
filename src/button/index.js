@@ -52,13 +52,14 @@ const BaseButton = styled.button`
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: none;
     justify-content: center;
-    padding: 0.5em;
-    border-radius: 0.1em;
+
+    ${ props => props.busy ? "pointer-events: none;" : "" }
+
+    border: none;
     border-radius: 0.2em;
-    display: flex;
-    align-items: center;
+
+    padding: 0.5em;
     background-color: ${ props => getBackgroundColor(props.type) };
     cursor: pointer;
     outline: none;
@@ -98,27 +99,12 @@ export default class Button extends Component {
         busy: false
     }
 
-    _disableBusy(callback) {
-        return (...args) => {
-            if(!this.props.busy && callback) {
-                callback(...args)
-            }
-        }
-    }
-
     render() {
         const {
             children,
             busy,
             ...props
         } = this.props
-
-        //if a button is busy it should not fire events
-        for(let fname in props) {
-            if(/^on.*$/.test(fname)) {
-                props[fname] = this._disableBusy(props[fname])
-            }
-        }
 
         if(busy) {
             return <BaseButton {...props} busy>
