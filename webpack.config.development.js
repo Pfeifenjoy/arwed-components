@@ -3,6 +3,7 @@ const path = require("path")
 const webpack = require("webpack")
 const autoprefixer = require("autoprefixer")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const WebpackNotifierPlugin = require("webpack-notifier")
 
 module.exports = {
     context: __dirname,
@@ -25,18 +26,19 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: "babel",
-                exclude: [/(node_modules)/, /react-css-themr/]
+                exclude: [/(node_modules)/, /react-css-themr/],
+                query: {
+                    presets: ["es2015", "stage-0", "react", "react-hmre"],
+                    "plugins": ["transform-decorators-legacy"]
+                }
+
             }
         ]
     },
     postcss: [autoprefixer],
     plugins: [
-        new ExtractTextPlugin('style.css'),
+        new WebpackNotifierPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin({
-            "process.env.NODE_ENV": JSON.stringify("development"),
-            VERSION: JSON.stringify(pkg.version)
-        })
+        new webpack.NoErrorsPlugin()
     ]
 }
