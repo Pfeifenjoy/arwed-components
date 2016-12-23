@@ -13,6 +13,8 @@ const InputSection = () => {
         <Input placeholder="placeholder" />
         <br />
         <Input placeholder="placeholder" busy />
+        <br />
+        <Input placeholder="placeholder" error />
         <Code>
             {`
             <Input placeholder="placeholder" />

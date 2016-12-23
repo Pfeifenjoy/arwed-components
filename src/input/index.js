@@ -9,6 +9,12 @@ function getBusy() {
     `
 }
 
+function getError() {
+    return `
+        box-shadow: 0 0 3px 1px red;
+    `
+}
+
 export default styled.input`
     ${ text }
     border: none;
@@ -24,9 +30,11 @@ export default styled.input`
     padding-right: 5px;
     box-sizing: border-box;
     ${ props => props.busy ? getBusy() : "" }
+    ${ props => props.error ? getError() : "" }
 
     &:focus {
-        opacity: 0.5;
+        filter: brightness(1.1);
+        color: grey;
         border: 1px solid rgba(81, 203, 238, 1);
     }
 `
