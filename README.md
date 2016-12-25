@@ -1,6 +1,6 @@
 # arwed-components
 
-This is a collection of react components which I suddenly use.
+This is a collection of react components which I regularly use.
 
 To get an overview run:
 ```
