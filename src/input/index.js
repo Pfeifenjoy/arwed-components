@@ -15,21 +15,35 @@ function getError() {
     `
 }
 
+function getBorder(props) {
+    switch(props.type) {
+        case "borderless": return `
+            border: none;
+            padding: 0;
+        `
+        default: return `
+            border: 1px solid #DDDDDD;
+            border-radius: 3px;
+            padding: 0.4em;
+
+            &:focus {
+                border: 1px solid rgba(81, 203, 238, 1);
+            }
+        `
+    }
+}
+
 export default styled.input`
     ${ text }
-    border: none;
-    border: 1px solid #DDDDDD;
     background-color: white;
-    border-radius: 3px;
     transition: ease 0.2s;
-    padding: 0.4em;
     box-sizing: border-box;
     ${ props => props.busy ? getBusy() : "" }
     ${ props => props.error ? getError() : "" }
+    ${ props => getBorder(props) }
 
     &:focus {
         filter: brightness(1.1);
         color: grey;
-        border: 1px solid rgba(81, 203, 238, 1);
     }
 `
