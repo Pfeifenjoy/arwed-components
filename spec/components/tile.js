@@ -7,7 +7,7 @@ export default () => <section>
     <Code>{`
         <Tile title="Title" description="description" />
     `}</Code>
-    <PlusTile />
+    <PlusTile onClick={ () => alert("pressed tile") }/>
     <Code>{`
         <PlusTile />
     `}</Code>

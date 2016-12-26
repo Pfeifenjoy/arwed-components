@@ -15,3 +15,6 @@ export default styled.header`
     z-index: 10;
     top: 0;
 `
+
+export Spacer from "./spacer"
+export HeaderItem from "./item"

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Tile from "./tile"
+import TileTemplate from "./tile"
 import styled from "styled-components"
 
 const PLUS_DIM = 5;
@@ -13,6 +13,16 @@ const Plus = styled.svg`
     top: calc(50% - ${ PLUS_DIM / 2 }em);
     left: calc(50% - ${ PLUS_DIM / 2 }em);
     opacity: 0.3;
+`
+
+const Tile = styled(TileTemplate)`
+    border: 2px dashed #CCC;
+    opacity: 0.4;
+
+    &:hover {
+        opacity: 0.8;
+        box-shadow: none;
+    }
 `
 
 export default class PlusTile extends Component {
@@ -29,7 +39,6 @@ export default class PlusTile extends Component {
         const {
             onMouseEnter,
             onMouseLeave,
-            href,
             ...props
         } = this.props
 
@@ -38,13 +47,14 @@ export default class PlusTile extends Component {
         return <Tile
             onMouseEnter={ () => this.setHover(true).then(onMouseEnter) }
             onMouseLeave={ () => this.setHover(false).then(onMouseLeave) }
-            href={ href || "#" }
             { ...props }>
             <Plus
                 viewBox="0 0 1792 1792"
                 xmlns="http://www.w3.org/2000/svg"
                 style={ hoverStyle }
-            ><path d="M1600 736v192q0 40-28 68t-68 28h-416v416q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68v-416h-416q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h416v-416q0-40 28-68t68-28h192q40 0 68 28t28 68v416h416q40 0 68 28t28 68z"/></Plus>
+            >
+                <path d="M1600 736v192q0 40-28 68t-68 28h-416v416q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68v-416h-416q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h416v-416q0-40 28-68t68-28h192q40 0 68 28t28 68v416h416q40 0 68 28t28 68z"/>
+            </Plus>
         </Tile>
     }
 }
