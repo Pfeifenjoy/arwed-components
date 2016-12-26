@@ -12,9 +12,15 @@ export default styled(Link)`
     padding-right: 1em;
     text-decoration: inherit;
     color: inherit;
+    transition: 0.2s;
 
     &:hover {
         background-color: #F4B350;
+    }
+
+    &:active {
+        transition: 0s;
+        filter: brightness(0.8);
     }
 `
 
