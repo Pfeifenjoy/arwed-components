@@ -57,17 +57,25 @@ export default class TileComponent extends Component {
         this.setState({ hover })
     }
 
-    onMouseEnter(...props) {
+    onMouseOver(...props) {
         this.setHover(true)
-        if(this.props.onMouseEnter) {
-            this.props.onMouseEnter(...props)
+        if(this.props.onMouseOver) {
+            this.props.onMouseOver(...props)
         }
     }
 
-    onMouseLeave(...props) {
+    onMouseOut(...props) {
         this.setHover(false)
-        if(this.props.onMouseLeave) {
-            this.props.onMouseLeave(...props)
+        if(this.props.onMouseOut) {
+            this.props.onMouseOut(...props)
+        }
+    }
+
+    onDelete(event, ...rest) {
+        event.stopPropagation()
+        const { onDelete } = this.props
+        if(onDelete) {
+            onDelete(event, ...rest)
         }
     }
 
@@ -77,15 +85,13 @@ export default class TileComponent extends Component {
             description,
             children,
             onDelete,
-            onMouseEnter,
-            onMouseLeave,
             ...props
         } = this.props
 
         const deleteSymbol = <span
-            onClick={ onDelete }
-            onMouseEnter={ () => this.setHover(true) }
-            onMouseLeave={ () => this.setHover(false) }
+            onClick={ this.onDelete.bind(this) }
+            onMouseOver={ () => this.setHover(true) }
+            onMouseOut={ () => this.setHover(false) }
             style={{ opacity: onDelete && this.state.hover ? "" : 0 }}
         >
             <DeleteSymbol  />
@@ -93,8 +99,8 @@ export default class TileComponent extends Component {
 
         return <Tile
             { ...props }
-            onMouseEnter={ this.onMouseEnter.bind(this) }
-            onMouseLeave={ this.onMouseLeave.bind(this) }
+            onMouseOver={ this.onMouseOver.bind(this) }
+            onMouseOut={ this.onMouseOut.bind(this) }
         >
             { deleteSymbol }
             {
