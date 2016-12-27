@@ -32,6 +32,7 @@ const css = `
     &[contenteditable="true"]:empty:before {
         display: block;
         content: attr(placeholder);
+        opacity: 0.5;
     }
 
     &:focus {

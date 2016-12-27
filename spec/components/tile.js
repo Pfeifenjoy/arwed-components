@@ -11,5 +11,13 @@ export default () => <section>
     <Code>{`
         <PlusTile />
     `}</Code>
+    <Tile 
+        onDelete={ () => alert("pressed delete") }
+    />
+    <Code>{`
+        <Tile 
+            onDelete={ () => alert("pressed tile") }
+        />
+    `}</Code>
 </section>
 

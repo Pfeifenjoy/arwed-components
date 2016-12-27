@@ -1,7 +1,8 @@
-import React from "react"
+import React, { Component } from "react"
 import styled from "styled-components"
 import { text, title } from "../style"
 import { Link } from "react-router"
+import DeleteSymbol from "./delete-symbol"
 
 
 function getHover(props) {
@@ -47,29 +48,70 @@ const Description = styled.p`
 `
 
 
-export default p => {
-    const {
-        title,
-        description,
-        children,
-        ...props
-    } = p
+export default class TileComponent extends Component {
+    state = {
+        hover: false
+    }
 
-    return <Tile { ...props }>
-        {
-            (() => {
-                if(title) {
-                    return <Title>{ title }</Title>
-                }
-            })()
+    setHover(hover) {
+        this.setState({ hover })
+    }
+
+    onMouseEnter(...props) {
+        this.setHover(true)
+        if(this.props.onMouseEnter) {
+            this.props.onMouseEnter(...props)
         }
-        {
-            (() => {
-                if(description) {
-                    return <Description>{ description }</Description>
-                }
-            })()
+    }
+
+    onMouseLeave(...props) {
+        this.setHover(false)
+        if(this.props.onMouseLeave) {
+            this.props.onMouseLeave(...props)
         }
-        { children }
-    </Tile>
+    }
+
+    render() {
+        const {
+            title,
+            description,
+            children,
+            onDelete,
+            onMouseEnter,
+            onMouseLeave,
+            ...props
+        } = this.props
+
+        const deleteSymbol = <span
+            onClick={ onDelete }
+            onMouseEnter={ () => this.setHover(true) }
+            onMouseLeave={ () => this.setHover(false) }
+            style={{ opacity: onDelete && this.state.hover ? "" : 0 }}
+        >
+            <DeleteSymbol  />
+        </span>
+
+        return <Tile
+            { ...props }
+            onMouseEnter={ this.onMouseEnter.bind(this) }
+            onMouseLeave={ this.onMouseLeave.bind(this) }
+        >
+            { deleteSymbol }
+            {
+                (() => {
+                    if(title) {
+                        return <Title>{ title }</Title>
+                    }
+                })()
+            }
+            {
+                (() => {
+                    if(description) {
+                        return <Description>{ description }</Description>
+                    }
+                })()
+            }
+            { children }
+        </Tile>
+    }
 }
